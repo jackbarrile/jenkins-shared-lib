@@ -1,0 +1,11 @@
+#!groovy?
+
+library identifier: 'jacks-shared-lib@master',
+    retriever: modernSCM([$class: 'GitSCMSource',
+                          credentials: 'credentials',
+                          id: 'id',
+                          remoteL 'git remote url',
+                          traits: [[$class: 'jenkins.plugins.git.traits.BranchDiscoveryTrait'], headRegexFilter('.*master')
+    ]])
+
+runPipeline(this)
